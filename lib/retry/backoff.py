@@ -1,7 +1,10 @@
 import asyncio
 import random
-from logging import logger
+import logging
 from functools import wraps
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 def exponential_backoff(max_retries: int = 3, base_delay: float = 1.0, max_delay: float = 10.0 ):
     def decorator(func):
